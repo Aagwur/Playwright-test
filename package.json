@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test-mobile": "npx playwright test --headed --project=mobile",
+    "test-desktop": "npx playwright test --headed --project=desktop"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.35.1"
+    "@playwright/test": "^1.35.1",
+    "eslint": "^8.43.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
   }
 }
