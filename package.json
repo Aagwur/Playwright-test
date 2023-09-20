@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-desktop": "npx playwright test --headed --project=desktop --reporter=list",
+    "test-desktop": "npx playwright test --project=desktop",
     "show-report": "npx playwright show-report"
   },
   "keywords": [],

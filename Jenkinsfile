@@ -13,21 +13,13 @@ pipeline {
         '''
       }
     }
-    stage('help') {
-      steps {
-        sh 'npx playwright test --help'
-      }
-    }
     stage('test') {
       steps {
-        sh '''
-          npx playwright test --list
-          npx playwright test
-        '''
+        sh 'xvfb-run npm run test-desktop'
       }
       post {
         success {
-          archiveArtifacts(artifacts: './test-results')
+          archiveArtifacts(artifacts: '**/test-results')
         }
       }
     }
