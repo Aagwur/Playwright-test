@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-mobile": "npx playwright test --headed --project=mobile",
-    "test-desktop": "npx playwright test --headed --project=desktop"
+    "test-desktop": "npx playwright test --headed --project=desktop --reporter=list",
+    "show-report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.35.1",
+    "@playwright/test": "^1.38.0",
     "eslint": "^8.43.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5"

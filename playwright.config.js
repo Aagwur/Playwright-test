@@ -27,6 +27,7 @@ module.exports = defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    testIdAttribute: 'data-test',
     baseURL: 'https://www.saucedemo.com/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
@@ -38,13 +39,13 @@ module.exports = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'mobile',
-      use: { ...devices['iPhone 14 Pro Max'] },
-    },
-
-    {
       name: 'desktop',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        launchOptions: {
+          slowMo: 500,
+        },
+      },
     },
   ],
 
