@@ -6,7 +6,7 @@ pipeline {
   }
   parameters {
         string(name: 'BROWSER', defaultValue: 'chromium', description: 'Browser to run tests in')
-
+  }
   stages {
     stage('install playwright') {
       steps {
