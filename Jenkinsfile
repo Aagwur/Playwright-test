@@ -18,8 +18,15 @@ pipeline {
         sh 'xvfb-run npm run test-desktop'
       }
       post {
-        success {
-          archiveArtifacts(artifacts: '**/test-results')
+        always {
+          archiveArtifacts artifacts: '**/video.webm'
+          publishHTML (target : [allowMissing: false,
+            alwaysLinkToLastBuild: true,
+            keepAll: true,
+            reportDir: 'playwright-report',
+            reportFiles: 'index.html',
+            reportName: 'My Reports',
+            reportTitles: 'The Report'])
         }
       }
     }
