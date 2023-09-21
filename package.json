@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test-desktop": "npx playwright test --project=desktop",
+    "test-chrome": "npx playwright test --headed --project=chromium",
+    "test-firefox": "npx playwright test --headed --project=firefox",
+    "test-safari": "npx playwright test --headed --project=webkit",
     "show-report": "npx playwright show-report"
   },
   "keywords": [],

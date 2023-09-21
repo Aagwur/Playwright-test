@@ -16,7 +16,7 @@ test.describe('Login flow verification', () => {
       password: 'secret_sauce',
     });
 
-    await expect(mainPage.logoText).toHaveText('Swag labs');
+    await expect(mainPage.logoText).toHaveText('Swag Labs');
   });
 
   test('Login with correct username and incorrect password', async ({ page }) => {

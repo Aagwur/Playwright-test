@@ -4,6 +4,9 @@ pipeline {
       image 'mcr.microsoft.com/playwright:v1.38.0-jammy'
     } 
   }
+  parameters {
+        string(name: 'BROWSER', defaultValue: 'chromium', description: 'Browser to run tests in')
+
   stages {
     stage('install playwright') {
       steps {
@@ -15,12 +18,12 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'xvfb-run npm run test-desktop'
+        sh 'xvfb-run npm run test-${BROWSER}'
       }
       post {
         always {
-          archiveArtifacts artifacts: '**/video.webm'
-          publishHTML (target : [allowMissing: false,
+          publishHTML ([
+            allowMissing: false,
             alwaysLinkToLastBuild: true,
             keepAll: true,
             reportDir: 'playwright-report',
